@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quin Robinson — Senior Product Designer</title>
+  <title>Quin Robinson â Senior Product Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -36,10 +36,10 @@
       overflow-x: hidden;
     }
 
-    /* ── DARK ZONE ── */
+    /* ââ DARK ZONE ââ */
     .zone-dark { background: var(--charcoal); color: var(--white); }
 
-    /* ── NAV ── */
+    /* ââ NAV ââ */
     nav {
       display: flex;
       justify-content: space-between;
@@ -70,7 +70,7 @@
 
     .nav-links a:hover { color: var(--white); }
 
-    /* ── HERO ── */
+    /* ââ HERO ââ */
     .hero { padding: 6vw 4vw 7vw; border-bottom: 1px solid var(--charcoal-border); }
 
     .hero-eyebrow {
@@ -97,7 +97,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 3rem;
-      align-items: end;
+      align-items: start;
       border-top: 1px solid var(--charcoal-border);
       padding-top: 2.5rem;
     }
@@ -146,10 +146,10 @@
 
     .btn-ghost-light:hover { color: var(--white); }
 
-    /* ── LIGHT ZONE ── */
+    /* ââ LIGHT ZONE ââ */
     .zone-light { background: var(--white); }
 
-    /* ── SECTIONS ── */
+    /* ââ SECTIONS ââ */
     .section { padding: 5rem 4vw; }
     .section-bg-gray { background: var(--off-white); }
 
@@ -163,7 +163,7 @@
       display: block;
     }
 
-    /* Bebas lead — used for About and My Background headings */
+    /* Bebas lead â used for About and My Background headings */
     .section-lead {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(38px, 4.5vw, 62px);
@@ -194,7 +194,7 @@
 
     .resume-link:hover { color: var(--ink); }
 
-    /* ────────────────────────────────────────────
+    /* ââââââââââââââââââââââââââââââââââââââââââââ
        WORK GRID
 
        Mechanic:
@@ -202,9 +202,9 @@
        - .work-card-info sits at the bottom of the card (always visible)
        - .work-card-roles-panel is BELOW the card (translateY 100%)
        - On hover, roles panel slides UP to sit flush below .work-card-info
-         which itself also shifts up by the panel height — revealing roles
+         which itself also shifts up by the panel height â revealing roles
          while keeping info fully readable above it
-    ──────────────────────────────────────────── */
+    ââââââââââââââââââââââââââââââââââââââââââââ */
     .work-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -235,7 +235,7 @@
     }
 
     /*
-      Info block — pinned to bottom, slides UP on hover
+      Info block â pinned to bottom, slides UP on hover
       by the height of the roles panel (set via JS as --panel-h)
     */
     .work-card-info {
@@ -280,7 +280,7 @@
     }
 
     /*
-      Roles panel — starts BELOW the card (translateY 100%)
+      Roles panel â starts BELOW the card (translateY 100%)
       slides UP to be flush with the bottom of the card on hover.
       Its height is measured and stored as --panel-h on the card.
     */
@@ -321,9 +321,9 @@
       line-height: 1.4;
     }
 
-    /* ────────────────────────────────────────────
+    /* ââââââââââââââââââââââââââââââââââââââââââââ
        ABOUT
-    ──────────────────────────────────────────── */
+    ââââââââââââââââââââââââââââââââââââââââââââ */
     .about-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -358,15 +358,15 @@
 
     .about-meta-value { font-size: 16px; color: var(--ink-secondary); font-weight: 300; }
 
-    /* ────────────────────────────────────────────
+    /* ââââââââââââââââââââââââââââââââââââââââââââ
        TIMELINE
-    ──────────────────────────────────────────── */
+    ââââââââââââââââââââââââââââââââââââââââââââ */
     .timeline {
       position: relative;
       padding-left: 200px;
     }
 
-    /* vertical rule — starts below first dot, ends above last dot */
+    /* vertical rule â starts below first dot, ends above last dot */
     .timeline::before {
       content: '';
       position: absolute;
@@ -409,7 +409,7 @@
       Solid circle dot.
       Positioned on the line: left edge = line position (180px from .timeline left)
       minus half dot width (4.5px), relative to .timeline-item which starts at
-      padding-left: 200px — so offset from item left = -(200 - 180) - 4.5 = -24.5px
+      padding-left: 200px â so offset from item left = -(200 - 180) - 4.5 = -24.5px
       We use 2.75rem padding-left on item so content clears the dot.
     */
     .timeline-dot {
@@ -448,9 +448,9 @@
       font-weight: 300;
     }
 
-    /* ────────────────────────────────────────────
+    /* ââââââââââââââââââââââââââââââââââââââââââââ
        CONTACT
-    ──────────────────────────────────────────── */
+    ââââââââââââââââââââââââââââââââââââââââââââ */
     .zone-contact { background: var(--charcoal); color: var(--white); }
 
     .contact-inner {
@@ -491,11 +491,11 @@
 
     .contact-link:hover { color: var(--white); }
 
-    /* ── SCROLL FADE ── */
+    /* ââ SCROLL FADE ââ */
     .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
+    /* ââ MOBILE ââ */
     @media (max-width: 860px) {
       .about-body { grid-template-columns: 1fr; gap: 2.5rem; }
     }
@@ -741,7 +741,7 @@
   </div>
 
   <script>
-    /* ── mailto ── */
+    /* ââ mailto ââ */
     const subject = 'Portfolio deck request';
     const body = `Hi Quin,
 
@@ -760,7 +760,7 @@ Looking forward to connecting.
     document.getElementById('deck-btn-hero').href    = mailto;
     document.getElementById('deck-btn-contact').href = mailto;
 
-    /* ── card hover: measure panel height, set as CSS var on each card ── */
+    /* ââ card hover: measure panel height, set as CSS var on each card ââ */
     function initCards() {
       document.querySelectorAll('[data-card]').forEach(card => {
         const panel = card.querySelector('.work-card-roles-panel');
@@ -774,7 +774,7 @@ Looking forward to connecting.
       });
     }
 
-    /* ── scroll fade ── */
+    /* ââ scroll fade ââ */
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });

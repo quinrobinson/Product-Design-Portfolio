@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quin Robinson — Senior Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:        #111110;
+      --charcoal-border: rgba(255,255,255,0.09);
+      --charcoal-muted:  rgba(255,255,255,0.48);
+      --charcoal-subtle: rgba(255,255,255,0.24);
+      --white:           #ffffff;
+      --off-white:       #f5f4f1;
+      --light-border:    #e4e3df;
+      --ink:             #171715;
+      --ink-secondary:   #52524e;
+      --ink-tertiary:    #96958f;
+      --timeline-line:   #d0cfc9;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── DARK ZONE ── */
+    .zone-dark { background: var(--charcoal); color: var(--white); }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 4vw;
+      border-bottom: 1px solid var(--charcoal-border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal-muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero { padding: 6vw 4vw 7vw; border-bottom: 1px solid var(--charcoal-border); }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal-subtle);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero-headline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 11vw, 158px);
+      line-height: 0.93;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 4rem;
+    }
+
+    .hero-headline .muted { color: var(--charcoal-muted); }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: end;
+      border-top: 1px solid var(--charcoal-border);
+      padding-top: 2.5rem;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal-muted);
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 1.25rem; align-items: center; white-space: nowrap; }
+
+    .btn-primary {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 14px 26px;
+      background: var(--white);
+      color: var(--charcoal);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-ghost-light {
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal-muted);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost-light:hover { color: var(--white); }
+
+    /* ── LIGHT ZONE ── */
+    .zone-light { background: var(--white); }
+
+    /* ── SECTIONS ── */
+    .section { padding: 5rem 4vw; }
+    .section-bg-gray { background: var(--off-white); }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    /* Bebas lead — used for About and My Background headings */
+    .section-lead {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(38px, 4.5vw, 62px);
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header-row .section-label { margin-bottom: 0; }
+
+    .resume-link {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .resume-link:hover { color: var(--ink); }
+
+    /* ────────────────────────────────────────────
+       WORK GRID
+
+       Mechanic:
+       - The card is position:relative, overflow:hidden
+       - .work-card-info sits at the bottom of the card (always visible)
+       - .work-card-roles-panel is BELOW the card (translateY 100%)
+       - On hover, roles panel slides UP to sit flush below .work-card-info
+         which itself also shifts up by the panel height — revealing roles
+         while keeping info fully readable above it
+    ──────────────────────────────────────────── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #111;
+      cursor: default;
+    }
+
+    /* photo layer */
+    .work-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) contrast(1.1) brightness(0.3);
+      transition: filter 0.55s ease, transform 0.65s ease;
+    }
+
+    .work-card:hover .work-card-bg {
+      filter: grayscale(100%) contrast(1.2) brightness(0.15);
+      transform: scale(1.04);
+    }
+
+    /*
+      Info block — pinned to bottom, slides UP on hover
+      by the height of the roles panel (set via JS as --panel-h)
+    */
+    .work-card-info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      padding: 2rem 2rem 2.25rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 55%, transparent 100%);
+      transition: transform 0.46s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .work-card:hover .work-card-info {
+      transform: translateY(calc(-1 * var(--panel-h, 0px)));
+    }
+
+    .work-card-industry {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.52);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .work-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(24px, 2.4vw, 34px);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .work-card-challenge {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.62);
+      font-weight: 300;
+      max-width: 360px;
+    }
+
+    /*
+      Roles panel — starts BELOW the card (translateY 100%)
+      slides UP to be flush with the bottom of the card on hover.
+      Its height is measured and stored as --panel-h on the card.
+    */
+    .work-card-roles-panel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 1.25rem 2rem 1.5rem;
+      background: rgba(8,8,8,0.93);
+      transform: translateY(100%);
+      transition: transform 0.46s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .work-card:hover .work-card-roles-panel {
+      transform: translateY(0%);
+    }
+
+    .work-card-roles { display: flex; flex-direction: column; gap: 8px; }
+
+    .work-role-item { display: flex; align-items: baseline; gap: 12px; }
+
+    .work-role-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      font-weight: 500;
+      white-space: nowrap;
+      min-width: 68px;
+    }
+
+    .work-role-value {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* ────────────────────────────────────────────
+       ABOUT
+    ──────────────────────────────────────────── */
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink-secondary);
+      font-weight: 300;
+    }
+
+    .about-copy p { margin-bottom: 1.25rem; }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .about-copy strong { color: var(--ink); font-weight: 500; }
+
+    .about-meta { padding-top: 0.25rem; }
+
+    .about-meta-item { padding: 1.1rem 0; border-bottom: 1px solid var(--light-border); }
+    .about-meta-item:first-child { border-top: 1px solid var(--light-border); }
+
+    .about-meta-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .about-meta-value { font-size: 16px; color: var(--ink-secondary); font-weight: 300; }
+
+    /* ────────────────────────────────────────────
+       TIMELINE
+    ──────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 200px;
+    }
+
+    /* vertical rule — starts below first dot, ends above last dot */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 180px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--timeline-line);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 3.5rem 2.75rem;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    /* date + company left of line */
+    .timeline-date {
+      position: absolute;
+      left: -200px;
+      width: 170px;
+      text-align: right;
+      /* align with the role title, not the dot */
+      top: 0;
+    }
+
+    .timeline-period {
+      font-size: 12px;
+      color: var(--ink-tertiary);
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+
+    .timeline-co { font-size: 14px; font-weight: 500; color: var(--ink); margin-top: 3px; }
+    .timeline-co-note { font-size: 11px; color: var(--ink-tertiary); font-weight: 300; margin-top: 2px; }
+
+    /*
+      Solid circle dot.
+      Positioned on the line: left edge = line position (180px from .timeline left)
+      minus half dot width (4.5px), relative to .timeline-item which starts at
+      padding-left: 200px — so offset from item left = -(200 - 180) - 4.5 = -24.5px
+      We use 2.75rem padding-left on item so content clears the dot.
+    */
+    .timeline-dot {
+      position: absolute;
+      left: -4px; /* sits on the line: line is at 2.75rem from item left edge, dot is 9px wide */
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      background: var(--ink);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--off-white), 0 0 0 4px var(--timeline-line);
+      z-index: 1;
+    }
+
+    .timeline-content {}
+
+    .timeline-role {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .timeline-detail {
+      font-size: 16px;
+      color: var(--ink-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .timeline-clients {
+      font-size: 14px;
+      color: var(--ink-tertiary);
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* ────────────────────────────────────────────
+       CONTACT
+    ──────────────────────────────────────────── */
+    .zone-contact { background: var(--charcoal); color: var(--white); }
+
+    .contact-inner {
+      padding: 7vw 4vw;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .contact-hed {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 140px);
+      line-height: 0.93;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .contact-note {
+      font-size: 17px;
+      color: var(--charcoal-muted);
+      line-height: 1.75;
+      max-width: 440px;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 1.25rem; text-align: right; }
+
+    .contact-link {
+      font-size: 16px;
+      color: var(--charcoal-muted);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: var(--white); }
+
+    /* ── SCROLL FADE ── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 860px) {
+      .about-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.5rem 5vw; }
+      .hero { padding: 10vw 5vw 12vw; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-actions { justify-content: flex-start; }
+      .section { padding: 3.5rem 5vw; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card { aspect-ratio: 3 / 2; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 12vw 5vw; }
+      .contact-links { text-align: left; }
+      .timeline { padding-left: 1.75rem; }
+      .timeline::before { left: 0; }
+      .timeline-item { padding-left: 1.5rem; }
+      .timeline-dot { left: -4px; box-shadow: 0 0 0 3px var(--off-white), 0 0 0 4px var(--timeline-line); }
+      .timeline-date { position: static; width: auto; text-align: left; margin-bottom: 8px; }
+    }
+
+    @media (max-width: 480px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- DARK HERO -->
+  <div class="zone-dark">
+    <nav>
+      <a class="nav-logo" href="#">Quin Robinson</a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <p class="hero-eyebrow">Senior Product Designer &mdash; Dallas, TX</p>
+      <h1 class="hero-headline">
+        Designing for what<br><span class="muted">comes next.</span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-sub">Nearly twenty years of experience turning complex systems into products people can actually use. I work at the intersection of enterprise scale, emerging technology, and the kind of craft that holds up under pressure.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" id="deck-btn-hero" href="#">Request full deck</a>
+          <a class="btn-ghost-light" href="https://linkedin.com/in/quinrobinson" target="_blank">LinkedIn &nearr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHT ZONE -->
+  <div class="zone-light">
+
+    <!-- WORK -->
+    <section class="section" id="work">
+      <span class="section-label">Selected work</span>
+      <div class="work-grid fade-in">
+
+        <!-- Card 1 -->
+        <div class="work-card" data-card>
+          <div class="work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop');"></div>
+          <div class="work-card-info">
+            <p class="work-card-industry">Industrial / Commercial Fleet</p>
+            <h3 class="work-card-title">Dealer Intelligence Platform</h3>
+            <p class="work-card-challenge">How do you make real-time vehicle diagnostics legible to a service advisor who has six trucks in queue and a customer on hold?</p>
+          </div>
+          <div class="work-card-roles-panel">
+            <div class="work-card-roles">
+              <div class="work-role-item"><span class="work-role-label">Strategy</span><span class="work-role-value">Experience vision and product direction</span></div>
+              <div class="work-role-item"><span class="work-role-label">Craft</span><span class="work-role-value">End-to-end UI design and interaction patterns</span></div>
+              <div class="work-role-item"><span class="work-role-label">Research</span><span class="work-role-value">Stakeholder workshops and usability validation</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="work-card" data-card>
+          <div class="work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop');"></div>
+          <div class="work-card-info">
+            <p class="work-card-industry">Retail / Print Services</p>
+            <h3 class="work-card-title">Online Print-On-Demand Platform</h3>
+            <p class="work-card-challenge">Designing a self-service print ordering experience that works for the customer placing the order and the associate fulfilling it in store.</p>
+          </div>
+          <div class="work-card-roles-panel">
+            <div class="work-card-roles">
+              <div class="work-role-item"><span class="work-role-label">Strategy</span><span class="work-role-value">Platform vision from concept through execution</span></div>
+              <div class="work-role-item"><span class="work-role-label">Systems</span><span class="work-role-value">Component library and contribution standards</span></div>
+              <div class="work-role-item"><span class="work-role-label">Craft</span><span class="work-role-value">Interaction design across customer and associate flows</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="work-card" data-card>
+          <div class="work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=900&q=80&auto=format&fit=crop');"></div>
+          <div class="work-card-info">
+            <p class="work-card-industry">Agriculture / Heavy Equipment</p>
+            <h3 class="work-card-title">Field Data Visualization</h3>
+            <p class="work-card-challenge">Bringing machine telemetry into the cab in a form that's useful to an operator, not just readable to an analyst.</p>
+          </div>
+          <div class="work-card-roles-panel">
+            <div class="work-card-roles">
+              <div class="work-role-item"><span class="work-role-label">Research</span><span class="work-role-value">Field observation and operator interviews</span></div>
+              <div class="work-role-item"><span class="work-role-label">Craft</span><span class="work-role-value">Data visualization design for real-world conditions</span></div>
+              <div class="work-role-item"><span class="work-role-label">Systems</span><span class="work-role-value">Interface standards for embedded display constraints</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="work-card" data-card>
+          <div class="work-card-bg" style="background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80&auto=format&fit=crop');"></div>
+          <div class="work-card-info">
+            <p class="work-card-industry">Consumer / Sports Tech</p>
+            <h3 class="work-card-title">Courtside IQ</h3>
+            <p class="work-card-challenge">A sports analytics app built end-to-end &mdash; from problem framing through build to App Store launch and subscription model.</p>
+          </div>
+          <div class="work-card-roles-panel">
+            <div class="work-card-roles">
+              <div class="work-role-item"><span class="work-role-label">Ownership</span><span class="work-role-value">Solo founder &mdash; strategy, design, and product decisions</span></div>
+              <div class="work-role-item"><span class="work-role-label">Craft</span><span class="work-role-value">Full UI design system and consumer mobile experience</span></div>
+              <div class="work-role-item"><span class="work-role-label">Build</span><span class="work-role-value">No-code implementation, App Store launch, subscriptions</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <span class="section-label">About</span>
+      <p class="section-lead fade-in">I make complex things feel simple.</p>
+      <div class="about-body fade-in">
+        <div class="about-copy">
+          <p>My work spans automotive, healthcare, energy, and retail &mdash; built across agency floors, enterprise consulting engagements, and my own projects. The through-line has always been the same: <strong>translate complexity into something a real person can use with confidence.</strong></p>
+          <p>I move fluidly between vision-level thinking and pixel-level execution. I'm equally comfortable running a stakeholder workshop and getting deep into a component spec. Right now I'm actively reshaping my practice around <strong>agentic product design</strong> &mdash; designing experiences where intelligent systems act on behalf of users, and where trust, transparency, and human control are the primary constraints.</p>
+          <p>Based in Dallas, TX. Lifelong sports fan. I make things.</p>
+        </div>
+        <div class="about-meta">
+          <div class="about-meta-item">
+            <p class="about-meta-label">Specialty</p>
+            <p class="about-meta-value">Enterprise UX, design systems, agentic product design</p>
+          </div>
+          <div class="about-meta-item">
+            <p class="about-meta-label">Industries</p>
+            <p class="about-meta-value">Industrial, healthcare, energy, retail, consumer</p>
+          </div>
+          <div class="about-meta-item">
+            <p class="about-meta-label">Approach</p>
+            <p class="about-meta-value">Vision to execution &mdash; research through final UI</p>
+          </div>
+          <div class="about-meta-item">
+            <p class="about-meta-label">Location</p>
+            <p class="about-meta-value">Dallas, TX</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKGROUND -->
+    <section class="section section-bg-gray">
+      <div class="section-header-row">
+        <span class="section-label">My Background</span>
+        <a class="resume-link" href="#">Download full resume &darr;</a>
+      </div>
+      <p class="section-lead fade-in">Experience that spans agency, enterprise, and independent work.</p>
+
+      <div class="timeline fade-in">
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <p class="timeline-period">Feb 2025 &ndash; Present</p>
+            <p class="timeline-co">IBM</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-role">Senior Product Designer</p>
+            <p class="timeline-detail">Designing AI-consumable content patterns and human-facing experiences for agentic systems &mdash; including Salesforce Knowledge architecture structured for both human findability and AI reasoning.</p>
+            <p class="timeline-clients">FPL Group</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <p class="timeline-period">Dec 2018 &ndash; Feb 2025</p>
+            <p class="timeline-co">Dialexa</p>
+            <p class="timeline-co-note">Acquired by IBM, 2022</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-role">Manager, Product Design &mdash; Senior Product Designer &mdash; Product Designer</p>
+            <p class="timeline-detail">Six years across three roles, progressing from individual contributor through design management. Led platform transformation for FedEx Office, fleet products for Navistar International, precision agriculture tools for John Deere, and enterprise software vision for Unisys. Earlier engagements included healthcare distribution design for AmerisourceBergen and consulting design sprints for Deloitte.</p>
+            <p class="timeline-clients">Navistar International, FedEx Office, John Deere, Unisys, AmerisourceBergen, Deloitte</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <p class="timeline-period">Jun 2016 &ndash; Nov 2018</p>
+            <p class="timeline-co">Ansira</p>
+            <p class="timeline-co-note">Formerly SQ1</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-role">Associate Creative Director</p>
+            <p class="timeline-detail">Led creative and UX direction for digital marketing engagements across national brand clients &mdash; concept development, information architecture, and interaction design across web, mobile, and campaign platforms.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">
+            <p class="timeline-period">Jun 2011 &ndash; Jun 2016</p>
+            <p class="timeline-co">SQ1</p>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-role">Senior Art Director / Art Director / Interactive Designer</p>
+            <p class="timeline-detail">Progressed through three roles over five years at a Dallas-based digital agency, leading interactive design and creative direction for consumer and B2B clients.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CONTACT -->
+  <div class="zone-contact" id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-hed">Ready when<br>you are.</h2>
+        <p class="contact-note">Most of my case studies are protected by NDAs. Request the full deck and I'll follow up with a password-protected presentation tailored to the role.</p>
+        <a class="btn-primary" id="deck-btn-contact" href="#">Request full deck</a>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:quinrobinson@gmail.com">quinrobinson@gmail.com &nearr;</a>
+        <a class="contact-link" href="https://linkedin.com/in/quinrobinson" target="_blank">linkedin.com/in/quinrobinson &nearr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ── mailto ── */
+    const subject = 'Portfolio deck request';
+    const body = `Hi Quin,
+
+I came across your portfolio and wanted to reach out. I'm interested in seeing your full case study deck.
+
+I'm currently [hiring for / exploring / reaching out about] a [role title] position at [company]. Your background in [something specific that caught my attention] stood out to me.
+
+Looking forward to connecting.
+
+[Your name]`;
+
+    const mailto = 'mailto:quinrobinson@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body='    + encodeURIComponent(body);
+
+    document.getElementById('deck-btn-hero').href    = mailto;
+    document.getElementById('deck-btn-contact').href = mailto;
+
+    /* ── card hover: measure panel height, set as CSS var on each card ── */
+    function initCards() {
+      document.querySelectorAll('[data-card]').forEach(card => {
+        const panel = card.querySelector('.work-card-roles-panel');
+
+        function measure() {
+          card.style.setProperty('--panel-h', panel.offsetHeight + 'px');
+        }
+
+        measure();
+        window.addEventListener('resize', measure);
+      });
+    }
+
+    /* ── scroll fade ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    window.addEventListener('load', initCards);
+  </script>
+
+</body>
+</html>

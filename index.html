@@ -535,29 +535,33 @@
       .timeline { padding-left: 1.75rem; }
       .timeline::before { left: 0; }
       .timeline-item { padding-left: 1.5rem; }
-      /* ── Mobile: disable hover, show label + title below image ── */
-      .work-card { aspect-ratio: 16 / 9; overflow: visible; }
-      .work-card-bg { border-radius: 0; }
-      .work-card-default { display: none; }
-      .work-card-roles-panel { display: none; }
-      .work-card-mobile-label {
-        display: block;
-        padding: 0.75rem 0 1.5rem;
+      /* ── Mobile: static image, label + title below, no hover ── */
+      .work-card { aspect-ratio: 16 / 9; overflow: visible; cursor: default; }
+      .work-card-default { display: none !important; }
+      .work-card-roles-panel { display: none !important; }
+      .work-card:hover .work-card-bg {
+        filter: grayscale(100%) contrast(1.1) brightness(0.32);
+        transform: none;
       }
-      .work-card-mobile-label .work-card-industry {
-        color: var(--ink-tertiary, rgba(0,0,0,0.4));
+      .work-card:hover .work-card-roles-panel { transform: translateY(100%); }
+      .work-card-mobile-label {
+        display: block !important;
+        padding: 0.6rem 0 1.25rem;
+      }
+      .work-card-mobile-label .mob-industry {
+        display: block;
         font-size: 10px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         font-weight: 500;
-        margin-bottom: 0.3rem;
-        display: block;
+        color: rgba(0,0,0,0.4);
+        margin-bottom: 0.25rem;
       }
-      .work-card-mobile-label .work-card-title-mobile {
+      .work-card-mobile-label .mob-title {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 22px;
+        font-size: 24px;
         letter-spacing: 0.04em;
-        color: var(--ink, #111110);
+        color: #111110;
         line-height: 1.1;
       }
       .timeline-dot { left: -4px; box-shadow: 0 0 0 3px var(--off-white), 0 0 0 4px var(--timeline-line); }
@@ -606,10 +610,7 @@
         <!-- Card 1 -->
         <div class="work-card" data-card>
           <div class="work-card-bg" style="background-image: url('images/commercial-fleet.jpg');">
-          <div class="work-card-mobile-label">
-            <span class="work-card-industry">Industrial / Commercial Fleet</span>
-            <div class="work-card-title-mobile">Dealer Intelligence Platform</div>
-          </div></div>
+          </div>
           <div class="work-card-info">
             <p class="work-card-industry">Industrial / Commercial Fleet</p>
             <h3 class="work-card-title">Dealer Intelligence Platform</h3>
@@ -624,6 +625,10 @@
               <div class="work-role-item"><span class="work-role-label">Research</span><span class="work-role-value">Stakeholder workshops and usability validation</span></div>
             </div>
           </div>
+        </div>
+        <div class="work-card-mobile-label">
+          <span class="mob-industry">Industrial / Commercial Fleet</span>
+          <div class="mob-title">Dealer Intelligence Platform</div>
         </div>
 
         <!-- Card 2 -->
@@ -644,14 +649,15 @@
             </div>
           </div>
         </div>
+        <div class="work-card-mobile-label">
+          <span class="mob-industry">Retail / Print Services</span>
+          <div class="mob-title">Online Print-On-Demand Platform</div>
+        </div>
 
         <!-- Card 3 -->
         <div class="work-card" data-card>
           <div class="work-card-bg" style="background-image: url('images/outdoor-equipment.jpg');">
-          <div class="work-card-mobile-label">
-            <span class="work-card-industry">Consumer / Outdoor Equipment</span>
-            <div class="work-card-title-mobile">Connected Lawn Care Vision</div>
-          </div></div>
+          </div>
           <div class="work-card-info">
             <p class="work-card-industry">Consumer / Outdoor Equipment</p>
             <h3 class="work-card-title">Connected Lawn Care Vision</h3>
@@ -667,14 +673,15 @@
             </div>
           </div>
         </div>
+        <div class="work-card-mobile-label">
+          <span class="mob-industry">Consumer / Outdoor Equipment</span>
+          <div class="mob-title">Connected Lawn Care Vision</div>
+        </div>
 
         <!-- Card 4 -->
         <div class="work-card" data-card>
           <div class="work-card-bg" style="background-image: url('images/sports-tech.jpg');">
-          <div class="work-card-mobile-label">
-            <span class="work-card-industry">Consumer / Sports Tech</span>
-            <div class="work-card-title-mobile">Courtside IQ</div>
-          </div></div>
+          </div>
           <div class="work-card-info">
             <p class="work-card-industry">Consumer / Sports Tech</p>
             <h3 class="work-card-title">Courtside IQ</h3>

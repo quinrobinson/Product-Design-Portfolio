@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quin Robinson — Senior Product Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9.5pt;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    /* ── HEADER ── */
+    .resume-header {
+      background: #111110;
+      color: #fff;
+      padding: 28px 48px 24px;
+    }
+    .resume-header h1 {
+      font-size: 40pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      color: #fff;
+    }
+    .resume-header .title {
+      font-size: 9pt;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #D4631C;
+      margin-top: 6px;
+    }
+    .resume-header .contact {
+      font-size: 8.5pt;
+      color: #ccc;
+      margin-top: 10px;
+    }
+    .resume-header .contact span { margin: 0 6px; opacity: 0.4; }
+
+    /* ── BODY ── */
+    .resume-body {
+      padding: 24px 48px 32px;
+    }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 18px; }
+
+    .section-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #D4631C;
+      border-bottom: 0.75px solid #D4631C;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* ── PROFILE ── */
+    .profile p {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px 24px;
+    }
+    .skills-grid li {
+      font-size: 9pt;
+      list-style: none;
+      padding: 1px 0;
+      color: #333;
+    }
+    .skills-grid li::before {
+      content: "• ";
+      color: #555;
+    }
+
+    /* ── AREAS OF FOCUS ── */
+    .focus p {
+      font-size: 9pt;
+      line-height: 1.55;
+      color: #333;
+    }
+    .focus strong { color: #1a1a1a; }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { margin-bottom: 14px; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .exp-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .exp-title em {
+      font-weight: 400;
+      font-style: italic;
+      color: #555;
+    }
+    .exp-dates {
+      font-size: 8.5pt;
+      color: #555;
+      white-space: nowrap;
+    }
+    .exp-role {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 1px;
+    }
+    .exp-subrole {
+      font-size: 8.5pt;
+      color: #777;
+      margin-bottom: 4px;
+    }
+
+    .exp-bullets { padding-left: 0; margin-top: 4px; }
+    .exp-bullets li {
+      list-style: none;
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #333;
+      margin-bottom: 4px;
+      padding-left: 14px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #777;
+    }
+
+    /* ── COMPANY BAR (Dialexa, Ansira, SQ1) ── */
+    .company-bar {
+      background: #e8e8e6;
+      padding: 5px 10px;
+      margin: 10px 0 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .company-bar-left { display: flex; align-items: baseline; gap: 8px; }
+    .company-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .company-note {
+      font-size: 8pt;
+      color: #777;
+    }
+    .company-dates {
+      font-size: 8pt;
+      color: #777;
+    }
+
+    .subrole-block { padding-left: 12px; margin-bottom: 10px; }
+
+    /* ── FOOTER SECTIONS (Education / Certs) ── */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+      margin-top: 4px;
+    }
+    .footer-grid .section-label { margin-bottom: 6px; }
+    .footer-grid p {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #333;
+    }
+    .footer-grid strong { font-weight: 600; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { font-size: 9pt; }
+      @page { margin: 0; size: letter; }
+      .resume-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .company-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="resume-header">
+    <h1>QUIN ROBINSON</h1>
+    <p class="title">S E N I O R &nbsp; P R O D U C T &nbsp; D E S I G N E R</p>
+    <p class="contact">
+      (972) 365-5316 <span>|</span> quinrobinson@gmail.com <span>|</span> Dallas, TX <span>|</span> linkedin.com/in/quinrobinson/
+    </p>
+  </header>
+
+  <div class="resume-body">
+
+    <!-- PROFILE -->
+    <section class="section profile">
+      <p class="section-label">Profile</p>
+      <p>Quin Robinson is a Senior Product Designer with 12 years of experience spanning agency and enterprise environments. His work spans automotive, healthcare, energy, and retail, with a consistent focus on translating complex systems into experiences that are clear, useful, and built to last. He moves fluidly between vision-level thinking and pixel-level execution, and is actively reshaping his practice around agentic product design — the emerging discipline of designing experiences where intelligent systems act on behalf of users, and where trust, transparency, and human control are the primary design constraints.</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <p class="section-label">Skills</p>
+      <ul class="skills-grid">
+        <li>UX / UI Design</li>
+        <li>Design Thinking</li>
+        <li>Prototyping</li>
+        <li>Service Design</li>
+        <li>Design Systems</li>
+        <li>Figma</li>
+        <li>Visual Design</li>
+        <li>Sketch</li>
+        <li>User Research</li>
+        <li>Adobe Creative Suite</li>
+        <li>Usability Testing</li>
+        <li>Design Engineering (Claude Code, Figma MCP)</li>
+      </ul>
+    </section>
+
+    <!-- AREAS OF FOCUS -->
+    <section class="section focus">
+      <p class="section-label">Areas of Focus</p>
+      <p><strong>Agentic Product Design —</strong> Structuring experiences and content so AI can reason over them accurately, and designing the human-facing layer that keeps users in confident control when systems act on their behalf.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <p class="section-label">Experience</p>
+
+      <!-- IBM -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Senior Product Designer &nbsp;<em>— IBM (formerly Dialexa)</em></span>
+          <span class="exp-dates">Feb 2025 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed a mobile-friendly Salesforce Knowledge experience for FPL Group, enabling every role, including non-Salesforce viewers, to find, navigate, and act on critical utility policies across a large-scale platform.</li>
+          <li>Co-developed AI-consumable content patterns for the Knowledge base, converting table logic into structured steps and key-value blocks, and tuning categories and metadata so AI agents could search, extract logic, and explain policies accurately.</li>
+          <li>Ran iterative working sessions to define success criteria and validate designs against both human findability and AI reasoning requirements, an early example of designing for human and agent audiences simultaneously.</li>
+          <li>Led a 5-week AI Maturity Assessment of AskGartner for IBM Consulting, conducting structured interviews with VP-level leaders across product, engineering, data science, and UX to evaluate experience quality, team topology, and operational readiness across 7 maturity paradigms.</li>
+          <li>Synthesized findings from 12 client interviews, 328 survey responses, and product analytics to surface experience gaps — not model accuracy — as the primary risk, identifying that clients were comparing AskGartner unfavorably to ChatGPT and Copilot on memory, query refinement, and workflow integration.</li>
+          <li>Co-developed a phased roadmap grounded in research synthesis, maturity scoring, and FinOps constraints, establishing governance, data architecture, agentic acceleration, and cost visibility as the four strategic pillars for evolving AskGartner toward enterprise-grade capability.</li>
+        </ul>
+      </div>
+
+      <!-- DIALEXA -->
+      <div class="company-bar">
+        <div class="company-bar-left">
+          <span class="company-name">Dialexa</span>
+          <span class="company-note">acquired by IBM, 2022</span>
+        </div>
+        <span class="company-dates">Dec 2018 – Feb 2025 · 6 yrs 3 mos</span>
+      </div>
+
+      <div class="subrole-block">
+        <p class="exp-role">Manager, Product Design</p>
+        <p class="exp-subrole">Jun 2022 – Feb 2025</p>
+        <ul class="exp-bullets">
+          <li>Managed design workstreams across multiple concurrent client engagements, overseeing quality, delivery, and team direction.</li>
+          <li>Led UX design for Navistar International's commercial vehicle digital products, defining user flows and interface standards across connected fleet platforms.</li>
+          <li>Designed precision agriculture tools for John Deere, balancing complex operational data with interfaces built for real-world field conditions.</li>
+          <li>Conducted stakeholder workshops and design reviews to align product direction across engineering and business teams.</li>
+        </ul>
+      </div>
+
+      <div class="subrole-block">
+        <p class="exp-role">Senior Product Designer</p>
+        <p class="exp-subrole">Dec 2019 – May 2022</p>
+        <ul class="exp-bullets">
+          <li>Drove a multi-year platform transformation for FedEx Office, leading from vision and strategy through component-level design system work and final UI execution.</li>
+          <li>Guided a platform-level brand transition, establishing new design system components, interaction patterns, and contribution standards.</li>
+          <li>Facilitated design thinking workshops and stakeholder alignment sessions across engineering, product, and executive audiences.</li>
+          <li>Defined future-state experience vision for Unisys enterprise software, delivering wireframes, prototypes, and journey maps.</li>
+        </ul>
+      </div>
+
+      <div class="subrole-block">
+        <p class="exp-role">Product Designer</p>
+        <p class="exp-subrole">Dec 2018 – Dec 2019</p>
+        <ul class="exp-bullets">
+          <li>Led discovery and design sprints for Deloitte consulting engagements, synthesizing research into actionable experience strategies and concept prototypes.</li>
+          <li>Designed healthcare distribution interfaces for AmerisourceBergen, focusing on usability within complex pharmaceutical supply chain workflows.</li>
+        </ul>
+      </div>
+
+      <!-- ANSIRA -->
+      <div class="company-bar">
+        <div class="company-bar-left">
+          <span class="company-name">Ansira</span>
+          <span class="company-note">Formerly SQ1</span>
+        </div>
+        <span class="company-dates">Jun 2016 – Nov 2018 · 2 yrs 6 mos</span>
+      </div>
+
+      <div class="subrole-block">
+        <p class="exp-role">Associate Creative Director</p>
+        <p class="exp-subrole">Jun 2016 – Nov 2018</p>
+        <ul class="exp-bullets">
+          <li>Led creative and UX direction for digital marketing engagements across national brand clients, overseeing concept development, information architecture, and interaction design.</li>
+          <li>Collaborated with strategy and account teams to translate brand briefs into digital experiences across web, mobile, and campaign platforms.</li>
+        </ul>
+      </div>
+
+      <!-- SQ1 -->
+      <div class="company-bar">
+        <div class="company-bar-left">
+          <span class="company-name">SQ1</span>
+          <span class="company-note">acquired by Ansira, 2016</span>
+        </div>
+        <span class="company-dates">Jun 2011 – Jun 2016 · 5 yrs</span>
+      </div>
+
+      <div class="subrole-block">
+        <p class="exp-role">Senior Art Director / Art Director / Interactive Designer</p>
+        <p class="exp-subrole">Jun 2011 – Jun 2016</p>
+        <ul class="exp-bullets">
+          <li>Progressed through three roles over five years at a Dallas-based digital agency, leading interactive design and creative direction for consumer and B2B clients.</li>
+          <li>Developed concepts, information architecture, and visual systems across web and digital campaign work.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- EDUCATION + CERTIFICATIONS -->
+    <div class="footer-grid">
+      <section class="section">
+        <p class="section-label">Education</p>
+        <p><strong>BS, Web Design &amp; Interactive Media</strong><br>The Art Institute, 2005</p>
+      </section>
+      <section class="section">
+        <p class="section-label">Certifications</p>
+        <p>IBM Design Thinking Practitioner</p>
+      </section>
+    </div>
+
+  </div>
+</body>
+</html>

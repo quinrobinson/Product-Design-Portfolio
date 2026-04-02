@@ -537,11 +537,11 @@
       .timeline-item { padding-left: 1.5rem; }
       /* ── Mobile: static image, label + title below, no hover ── */
       .work-card { aspect-ratio: 16 / 9; overflow: visible; cursor: default; }
-      .work-card-default { display: none !important; }
+      .work-card-info { display: none !important; }
       .work-card-roles-panel { display: none !important; }
       .work-card:hover .work-card-bg {
-        filter: grayscale(100%) contrast(1.1) brightness(0.32);
-        transform: none;
+        filter: grayscale(100%) contrast(1.1) brightness(0.32) !important;
+        transform: none !important;
       }
       .work-card:hover .work-card-roles-panel { transform: translateY(100%); }
       .work-card-mobile-label {

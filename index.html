@@ -537,12 +537,13 @@
       .timeline-item { padding-left: 1.5rem; }
       /* ── Mobile: static image, label + title below, no hover ── */
       .work-card { aspect-ratio: 16 / 9; overflow: visible; cursor: default; }
-      .work-card-info { display: none !important; }
+      .work-card-default { display: none !important; }
       .work-card-roles-panel { display: none !important; }
       .work-card:hover .work-card-bg {
-        filter: grayscale(100%) contrast(1.1) brightness(0.32) !important;
-        transform: none !important;
+        filter: grayscale(100%) contrast(1.1) brightness(0.32);
+        transform: none;
       }
+      .work-card:hover .work-card-roles-panel { transform: translateY(100%); }
       .work-card-mobile-label {
         display: block !important;
         padding: 0.6rem 0 1.25rem;
@@ -695,6 +696,10 @@
               <div class="work-role-item"><span class="work-role-label">Build</span><span class="work-role-value">No-code implementation, App Store launch, subscriptions</span></div>
             </div>
           </div>
+        </div>
+        <div class="work-card-mobile-label">
+          <span class="mob-industry">Consumer / Sports Tech</span>
+          <div class="mob-title">Courtside IQ</div>
         </div>
 
       </div>

@@ -284,6 +284,8 @@
       display: none;
     }
 
+    .work-card-mobile-label { display: none; }
+
     /*
       Roles panel ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ starts BELOW the card (translateY 100%)
       slides UP to be flush with the bottom of the card on hover.
@@ -533,6 +535,31 @@
       .timeline { padding-left: 1.75rem; }
       .timeline::before { left: 0; }
       .timeline-item { padding-left: 1.5rem; }
+      /* ── Mobile: disable hover, show label + title below image ── */
+      .work-card { aspect-ratio: 16 / 9; overflow: visible; }
+      .work-card-bg { border-radius: 0; }
+      .work-card-default { display: none; }
+      .work-card-roles-panel { display: none; }
+      .work-card-mobile-label {
+        display: block;
+        padding: 0.75rem 0 1.5rem;
+      }
+      .work-card-mobile-label .work-card-industry {
+        color: var(--ink-tertiary, rgba(0,0,0,0.4));
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+        display: block;
+      }
+      .work-card-mobile-label .work-card-title-mobile {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: var(--ink, #111110);
+        line-height: 1.1;
+      }
       .timeline-dot { left: -4px; box-shadow: 0 0 0 3px var(--off-white), 0 0 0 4px var(--timeline-line); }
       .timeline-date { position: static; width: auto; text-align: left; margin-bottom: 8px; }
     }
@@ -562,7 +589,7 @@
       <div class="hero-bottom">
         <p class="hero-sub">Nearly twenty years of experience turning complex systems into products people can actually use. I work at the intersection of enterprise scale, emerging technology, and the kind of craft that holds up under pressure.</p>
         <div class="hero-actions">
-          <a class="btn-primary" id="deck-btn-hero" href="mailto:quinrobinson@gmail.com?subject=Case%20Study%20Request&body=Hi%20Quin%2C%0A%0AI'd%20love%20to%20see%20your%20case%20studies.%0A%0A">Download Case Studies</a>
+          <a class="btn-primary" id="deck-btn-hero" href="#">Request full deck</a>
         </div>
       </div>
     </div>
@@ -578,7 +605,11 @@
 
         <!-- Card 1 -->
         <div class="work-card" data-card>
-          <div class="work-card-bg" style="background-image: url('images/commercial-fleet.jpg');"></div>
+          <div class="work-card-bg" style="background-image: url('images/commercial-fleet.jpg');">
+          <div class="work-card-mobile-label">
+            <span class="work-card-industry">Industrial / Commercial Fleet</span>
+            <div class="work-card-title-mobile">Dealer Intelligence Platform</div>
+          </div></div>
           <div class="work-card-info">
             <p class="work-card-industry">Industrial / Commercial Fleet</p>
             <h3 class="work-card-title">Dealer Intelligence Platform</h3>
@@ -616,7 +647,11 @@
 
         <!-- Card 3 -->
         <div class="work-card" data-card>
-          <div class="work-card-bg" style="background-image: url('images/outdoor-equipment.jpg');"></div>
+          <div class="work-card-bg" style="background-image: url('images/outdoor-equipment.jpg');">
+          <div class="work-card-mobile-label">
+            <span class="work-card-industry">Consumer / Outdoor Equipment</span>
+            <div class="work-card-title-mobile">Connected Lawn Care Vision</div>
+          </div></div>
           <div class="work-card-info">
             <p class="work-card-industry">Consumer / Outdoor Equipment</p>
             <h3 class="work-card-title">Connected Lawn Care Vision</h3>
@@ -635,7 +670,11 @@
 
         <!-- Card 4 -->
         <div class="work-card" data-card>
-          <div class="work-card-bg" style="background-image: url('images/sports-tech.jpg');"></div>
+          <div class="work-card-bg" style="background-image: url('images/sports-tech.jpg');">
+          <div class="work-card-mobile-label">
+            <span class="work-card-industry">Consumer / Sports Tech</span>
+            <div class="work-card-title-mobile">Courtside IQ</div>
+          </div></div>
           <div class="work-card-info">
             <p class="work-card-industry">Consumer / Sports Tech</p>
             <h3 class="work-card-title">Courtside IQ</h3>
@@ -761,7 +800,7 @@
       <div>
         <h2 class="contact-hed">Ready when<br>you are.</h2>
         <p class="contact-note">Most of my case studies are protected by NDAs. Request the full deck and I'll follow up with a password-protected presentation tailored to the role.</p>
-        <a class="btn-primary" id="deck-btn-contact" href="mailto:quinrobinson@gmail.com?subject=Case%20Study%20Request&body=Hi%20Quin%2C%0A%0AI'd%20love%20to%20see%20your%20case%20studies.%0A%0A">Download Case Studies</a>
+        <a class="btn-primary" id="deck-btn-contact" href="#">Request full deck</a>
       </div>
       <div class="contact-links">
         <a class="contact-link" href="mailto:quinrobinson@gmail.com">quinrobinson@gmail.com &nearr;</a>

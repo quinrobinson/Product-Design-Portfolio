@@ -100,10 +100,10 @@
     .hero-headline .muted { color: #ffffff; }
 
     .hero-bottom {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 52%;
     }
 
     .hero-sub {
@@ -600,7 +600,7 @@
     @media (max-width: 768px) {
       nav { padding: 1.5rem 5vw; }
       .hero { padding: 10vw 5vw 12vw; }
-      .hero-bottom { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-bottom { max-width: 100%; }
       .hero-actions { justify-content: flex-start; }
       .hero-actions { justify-content: flex-start; }
       .section { padding: 3.5rem 5vw; }
@@ -650,7 +650,7 @@
       <div class="hero-bottom">
         <p class="hero-sub">Nearly twenty years of experience turning complex systems into products people can actually use. I work at the intersection of enterprise scale, emerging technology, and the kind of craft that holds up under pressure.</p>
         <div class="hero-actions">
-          <a class="btn-primary" href="QuinRobinson-Portfolio.pdf" download>Download case studies<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-left:7px;margin-top:-1px"><path d="M6.5 1v7M4 5.5l2.5 2.5 2.5-2.5M2 11h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn-primary" href="QuinRobinson-Portfolio.pdf" download>Download selected work<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-left:7px;margin-top:-1px"><path d="M6.5 1v7M4 5.5l2.5 2.5 2.5-2.5M2 11h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
